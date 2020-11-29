@@ -13,7 +13,8 @@
         "paths": {
             "Components": ["Components/index.ts"],
             "Views": ["Views/index.ts"],
-            "State": ["State/index.ts"]
+            "State": ["State/index.ts"],
+            "Models": ["Models/index.ts"]
         }
     },
     "include": ["./Sources"]
