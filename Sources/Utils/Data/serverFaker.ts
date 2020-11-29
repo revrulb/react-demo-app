@@ -1,6 +1,6 @@
 export const serverFaker = {
-    fakeRequest<T>(data: Array<T>, timeout: number) {
-        return new Promise<Array<T>>((resolver) => {
+    fakeRequest<T>(data: T, timeout: number) {
+        return new Promise<T>((resolver) => {
             setTimeout(() => resolver(data), timeout);
         });
     }

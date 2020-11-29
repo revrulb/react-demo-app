@@ -13,9 +13,7 @@ export const RequestItemAdditionalInformation: React.FC<Props> = ({
     return (
         <div className="request-tape__item__additional-info">
             <RequestItemInnerHeader title={"Дополнительно"} />
-            {price} руб.
-            <br />
-            Заявка от {originDate.toDateString()}
+            {price} рублей, заявка от {originDate.toDateString()}
         </div>
     );
 };
