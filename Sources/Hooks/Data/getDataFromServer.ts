@@ -1,21 +1,23 @@
-import { Request } from "Models";
+import { useEffect, useState } from "react";
+import { useSetRequests } from "./stateDispatch";
+import { serverFaker } from "Utils";
+import { fakeServerResponseTime, serverResponse } from "Constants";
 
-export const useDataFromServer: () => Promise<Array<Request>> = () => {
-    const fakeInterval = 2500;
+export const useDataFromServer = () => {
+    const [isLoading, setIsLoading] = useState(false);
+    const setRequests = useSetRequests();
+    const serverDataPromise = serverFaker.fakeRequest(
+        serverResponse,
+        fakeServerResponseTime
+    );
 
-    return new Promise<Array<Request>>((resolver) => {
-        setTimeout(
-            () =>
-                resolver([
-                    {
-                        number: 0,
-                        originDate: new Date(),
-                        price: 11,
-                        source: { inn: "ss", name: "sfas" },
-                        title: "aaa"
-                    }
-                ]),
-            fakeInterval
-        );
-    });
+    useEffect(() => {
+        setIsLoading(true);
+        serverDataPromise.then((x) => {
+            setRequests(x);
+            setIsLoading(false);
+        });
+    }, []);
+
+    return isLoading;
 };

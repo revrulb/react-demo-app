@@ -16,7 +16,8 @@
             "State": ["State/index.ts"],
             "Models": ["Models/index.ts"],
             "Utils": ["Utils/index.ts"],
-            "Hooks": ["Hooks/index.ts"]
+            "Hooks": ["Hooks/index.ts"],
+            "Constants": ["Constants/index.ts"]
         }
     },
     "include": ["./Sources"]

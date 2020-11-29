@@ -10,4 +10,28 @@
 
 .app__container {
     display: flex;
+    flex-direction: column;
+}
+
+.requests-tape__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.request-tape__item {
+    display: flex;
+    flex-direction: column;
+    width: 24%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px rgb(153, 153, 153) solid;
+    margin: 5px;
+}
+
+.request-tape__item__header {
+    text-align: center;
+}
+
+.app__container__loading {
+    background-color: black;
 }

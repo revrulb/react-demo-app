@@ -10,18 +10,21 @@ import {
 } from "State";
 import { Request } from "Models";
 
-export const useSetCompanyNameInFilters = () => {
-    const dispatch = useDispatch<Dispatch<SetCompanyNameFilterAction>>();
+export const useSetFilters = () => {
+    const setCompanyNameDispatch = useDispatch<
+        Dispatch<SetCompanyNameFilterAction>
+    >();
 
-    return (companyName: string) =>
-        dispatch(buildSetCompanyNameFilterAction(companyName));
-};
+    const setRequestNumberDispatch = useDispatch<
+        Dispatch<SetRequestNumberFilterAction>
+    >();
 
-export const useSetRequestNumberInFilters = () => {
-    const dispatch = useDispatch<Dispatch<SetRequestNumberFilterAction>>();
-
-    return (requestNumber: string) =>
-        dispatch(buildSetRequestNumberFilterAction(requestNumber));
+    return (companyName: string, requestNumber: string) => {
+        setCompanyNameDispatch(buildSetCompanyNameFilterAction(companyName));
+        setRequestNumberDispatch(
+            buildSetRequestNumberFilterAction(requestNumber)
+        );
+    };
 };
 
 export const useSetRequests = () => {

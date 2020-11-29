@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import {
-    useSetCompanyNameInFilters,
-    useSetRequestNumberInFilters
-} from "Hooks";
+import { useSetFilters } from "Hooks";
 import { FiltersInput, FiltersButton, FiltersContainer } from "Views";
 
 export const Filters: React.FC = () => {
     const [companyName, setCompanyName] = useState("");
     const [requestNumber, setRequestNumber] = useState("");
 
-    const setCompanyNameInFilters = useSetCompanyNameInFilters();
-    const setRequestNumberInFilters = useSetRequestNumberInFilters();
+    const setFilters = useSetFilters();
 
     return (
         <FiltersContainer>
@@ -26,10 +22,7 @@ export const Filters: React.FC = () => {
             />
             <FiltersButton
                 title={"Установить фильтры"}
-                onClick={() => {
-                    setCompanyNameInFilters(companyName);
-                    setRequestNumberInFilters(requestNumber);
-                }}
+                onClick={() => setFilters(companyName, requestNumber)}
             />
         </FiltersContainer>
     );
