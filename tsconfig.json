@@ -14,7 +14,9 @@
             "Components": ["Components/index.ts"],
             "Views": ["Views/index.ts"],
             "State": ["State/index.ts"],
-            "Models": ["Models/index.ts"]
+            "Models": ["Models/index.ts"],
+            "Utils": ["Utils/index.ts"],
+            "Hooks": ["Hooks/index.ts"]
         }
     },
     "include": ["./Sources"]

@@ -1,0 +1,13 @@
+.filters__container {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.filters__control {
+    margin: 10px;
+}
+
+.app__container {
+    display: flex;
+}
