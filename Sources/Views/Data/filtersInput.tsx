@@ -1,4 +1,5 @@
 import React from "react";
+import { useSharedStyles } from "Hooks";
 
 type Props = {
     value: string;
@@ -11,9 +12,11 @@ export const FiltersInput: React.FC<Props> = ({
     value,
     placeholder
 }) => {
+    const sharedStyles = useSharedStyles();
+
     return (
         <input
-            className="filters__control"
+            className={sharedStyles.filters__control}
             value={value}
             placeholder={placeholder}
             onChange={(x) => newValueHandler(x.target.value)}

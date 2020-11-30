@@ -1,3 +1,4 @@
+import { useSharedStyles } from "Hooks";
 import React from "react";
 
 type Props = {
@@ -6,8 +7,10 @@ type Props = {
 };
 
 export const FiltersButton: React.FC<Props> = ({ onClick, title }) => {
+    const sharedStyles = useSharedStyles();
+
     return (
-        <button className="filters__control" onClick={onClick}>
+        <button className={sharedStyles.filters__control} onClick={onClick}>
             {title}
         </button>
     );
