@@ -13,10 +13,8 @@ const rootReducer: Reducer<StateModel, PossibleActions> = (
     action
 ) => {
     switch (action.type) {
-        case "set_company_name_filter":
-            return reducers.setCompanyNameFilter(state, action);
-        case "set_request_number_filter":
-            return reducers.setRequestNumberFilter(state, action);
+        case "set_filters":
+            return reducers.setFilters(state, action);
         case "set_requests":
             return reducers.setRequests(state, action);
         default:

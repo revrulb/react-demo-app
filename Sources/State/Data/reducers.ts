@@ -1,10 +1,6 @@
 import { Reducer } from "redux";
 import { StateModel } from "State";
-import {
-    SetRequestsAction,
-    SetCompanyNameFilterAction,
-    SetRequestNumberFilterAction
-} from "./actions";
+import { SetRequestsAction, SetFiltersAction } from "./actions";
 
 export const setRequests: Reducer<StateModel, SetRequestsAction> = (
     state,
@@ -13,22 +9,14 @@ export const setRequests: Reducer<StateModel, SetRequestsAction> = (
     return { ...state!, requests: action.requests };
 };
 
-export const setCompanyNameFilter: Reducer<
-    StateModel,
-    SetCompanyNameFilterAction
-> = (state, action) => {
-    return {
-        ...state!,
-        filters: { ...state!.filters, sourceCompanyName: action.companyName }
-    };
-};
+export const setFilters: Reducer<StateModel, SetFiltersAction> = (
+    state,
+    action
+) => {
+    const { companyName, requestNumber } = action;
 
-export const setRequestNumberFilter: Reducer<
-    StateModel,
-    SetRequestNumberFilterAction
-> = (state, action) => {
     return {
         ...state!,
-        filters: { ...state!.filters, requestNumber: action.requestNumber }
+        filters: { requestNumber, sourceCompanyName: companyName }
     };
 };

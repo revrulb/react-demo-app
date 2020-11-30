@@ -5,20 +5,12 @@ export interface SetRequestsAction extends Action<"set_requests"> {
     requests: Array<Request>;
 }
 
-export interface SetRequestNumberFilterAction
-    extends Action<"set_request_number_filter"> {
+export interface SetFiltersAction extends Action<"set_filters"> {
     requestNumber: string;
-}
-
-export interface SetCompanyNameFilterAction
-    extends Action<"set_company_name_filter"> {
     companyName: string;
 }
 
-export type PossibleActions =
-    | SetRequestsAction
-    | SetRequestNumberFilterAction
-    | SetCompanyNameFilterAction;
+export type PossibleActions = SetRequestsAction | SetFiltersAction;
 
 export const buildSetRequestsAction = (
     requests: Array<Request>
@@ -26,14 +18,13 @@ export const buildSetRequestsAction = (
     return { type: "set_requests", requests };
 };
 
-export const buildSetRequestNumberFilterAction = (
+export const buildSetFiltersAction = (
+    companyName: string,
     requestNumber: string
-): SetRequestNumberFilterAction => {
-    return { type: "set_request_number_filter", requestNumber };
-};
-
-export const buildSetCompanyNameFilterAction = (
-    companyName: string
-): SetCompanyNameFilterAction => {
-    return { type: "set_company_name_filter", companyName };
+): SetFiltersAction => {
+    return {
+        type: "set_filters",
+        companyName,
+        requestNumber
+    };
 };

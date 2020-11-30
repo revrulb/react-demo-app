@@ -1,29 +1,18 @@
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import {
-    SetCompanyNameFilterAction,
-    buildSetCompanyNameFilterAction,
-    SetRequestNumberFilterAction,
-    buildSetRequestNumberFilterAction,
+    SetFiltersAction,
+    buildSetFiltersAction,
     SetRequestsAction,
     buildSetRequestsAction
 } from "State";
 import { Request } from "Models";
 
 export const useSetFilters = () => {
-    const setCompanyNameDispatch = useDispatch<
-        Dispatch<SetCompanyNameFilterAction>
-    >();
-
-    const setRequestNumberDispatch = useDispatch<
-        Dispatch<SetRequestNumberFilterAction>
-    >();
+    const setFiltersDispatch = useDispatch<Dispatch<SetFiltersAction>>();
 
     return (companyName: string, requestNumber: string) => {
-        setCompanyNameDispatch(buildSetCompanyNameFilterAction(companyName));
-        setRequestNumberDispatch(
-            buildSetRequestNumberFilterAction(requestNumber)
-        );
+        setFiltersDispatch(buildSetFiltersAction(companyName, requestNumber));
     };
 };
 
