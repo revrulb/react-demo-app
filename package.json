@@ -5,7 +5,7 @@
     "types": "Transpiled/index.d.ts",
     "scripts": {
         "format": "prettier --config .prettierrc --write Sources/*",
-        "build": "npx webpack",
+        "build": "npx webpack --mode production",
         "watch": "npx webpack --watch",
         "test": "jest",
         "lint": "eslint Sources/**/*.tsx --ext .tsx",
