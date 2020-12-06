@@ -1,22 +1,35 @@
 import { useEffect, useState } from "react";
 import { useSetRequests } from "./stateDispatch";
-import { serverFaker } from "Utils";
-import { fakeServerResponseTime, serverResponse } from "Constants";
+import { APIRequestItem, requestsAPIClient } from "API";
+import { Request } from "Models";
 
 export const useDataFromServer = () => {
     const [isLoading, setIsLoading] = useState(false);
     const setRequests = useSetRequests();
-    const serverDataPromise = serverFaker.fakeRequest(
-        serverResponse,
-        fakeServerResponseTime
-    );
 
     useEffect(() => {
         setIsLoading(true);
-        serverDataPromise.then((x) => {
-            setRequests(x);
-            setIsLoading(false);
-        });
+
+        requestsAPIClient
+            .getRequests()
+            .then((x) => {
+                const requestsFromAPI = x.data;
+
+                const requestFromAPIToRequest = (
+                    source: APIRequestItem
+                ): Request => {
+                    return {
+                        ...source,
+                        originDate: new Date(source.originDate)
+                    };
+                };
+
+                setRequests(requestsFromAPI.map(requestFromAPIToRequest));
+                setIsLoading(false);
+            })
+            .catch(() => {
+                setRequests([]);
+            });
     }, []);
 
     return isLoading;

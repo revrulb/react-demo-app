@@ -10,11 +10,37 @@ const useStyles = createUseStyles({
         padding: "10px",
         border: "1px rgb(153, 153, 153) solid",
         margin: "5px"
+    },
+    "request-tape__item__hovered": {
+        border: "1px black solid",
+        cursor: "pointer",
+        background: "#e7e7e7"
     }
 });
 
-export const RequestItemContainer: React.FC = ({ children }) => {
+type Props = {
+    isHovered: boolean;
+    hover: () => void;
+    unhover: () => void;
+};
+
+export const RequestItemContainer: React.FC<Props> = ({
+    children,
+    hover,
+    isHovered,
+    unhover
+}) => {
     const styles = useStyles();
 
-    return <div className={styles["request-tape__item"]}>{children}</div>;
+    return (
+        <div
+            className={`${styles["request-tape__item"]} ${
+                isHovered ? styles["request-tape__item__hovered"] : ""
+            }`}
+            onMouseEnter={hover}
+            onMouseLeave={unhover}
+        >
+            {children}
+        </div>
+    );
 };

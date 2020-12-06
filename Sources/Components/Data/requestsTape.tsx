@@ -9,7 +9,7 @@ export const RequestsTape: React.FC = () => {
     return (
         <RequestsTapeContainer>
             {requiredRequests.map((x) => (
-                <RequestItem request={x} />
+                <RequestItem request={x} key={x.number} />
             ))}
         </RequestsTapeContainer>
     );

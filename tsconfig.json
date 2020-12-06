@@ -17,7 +17,7 @@
             "Models": ["Models/index.ts"],
             "Utils": ["Utils/index.ts"],
             "Hooks": ["Hooks/index.ts"],
-            "Constants": ["Constants/index.ts"]
+            "API": ["API/index.ts"]
         }
     },
     "include": ["./Sources"]
