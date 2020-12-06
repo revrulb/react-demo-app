@@ -9,6 +9,7 @@ module.exports = {
         path: path.join(__dirname, "/Transpiled"),
         filename: "react_spa_bundle.js"
     },
+    devtool: "inline-source-map",
     resolve: {
         extensions: [".ts", ".tsx", ".js"],
         plugins: [new TsconfigPathsPlugin()]

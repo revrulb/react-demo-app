@@ -1,10 +1,10 @@
 import React from "react";
 import { Filters, RequestsTape } from "Components";
 import { AppContainer } from "Views";
-import { useDataFromServer } from "Hooks";
+import { useRequestsFromServer } from "Hooks";
 
 export const App: React.FC = () => {
-    const isLoading = useDataFromServer();
+    const isLoading = useRequestsFromServer();
 
     return (
         <AppContainer isLoading={isLoading}>

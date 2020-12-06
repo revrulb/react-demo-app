@@ -10,6 +10,7 @@
         "allowJs": true,
         "jsx": "react",
         "baseUrl": "Sources",
+        "sourceMap": true,
         "paths": {
             "Components": ["Components/index.ts"],
             "Views": ["Views/index.ts"],
